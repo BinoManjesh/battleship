@@ -7,7 +7,7 @@
     "test": "jest --watch",
     "build": "webpack --mode production",
     "start": "webpack serve --open-app chromium",
-    "push-dist": "git add dist && git commit -m \"Run build\" && git subtree push --prefix dist origin gh-pages"
+    "push-dist": "npm run build && git add dist && git commit -m \"Run build\" && git subtree push --prefix dist origin gh-pages"
   },
   "keywords": [],
   "author": "",
