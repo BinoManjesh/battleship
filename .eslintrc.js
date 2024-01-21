@@ -15,7 +15,7 @@ module.exports = {
       },
     },
     {
-      files: ["*test.js"],
+      files: ["tests/**/*"],
       env: {
         jest: true,
       },
@@ -25,6 +25,6 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  ignorePatterns: ["/*", "!/src"],
+  ignorePatterns: ["/*", "!/src", "!/tests"],
   rules: {},
 };
