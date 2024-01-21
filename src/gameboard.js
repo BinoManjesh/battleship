@@ -14,6 +14,7 @@ export default class Gameboard {
   board;
   size;
   ships;
+  floatingShips;
 
   constructor(size) {
     this.size = size;
@@ -25,6 +26,7 @@ export default class Gameboard {
       }
     }
     this.ships = new Array();
+    this.floatingShips = 0;
   }
 
   placeShip(length, x, y, horizontal) {
@@ -48,6 +50,25 @@ export default class Gameboard {
       const currY = horizontal ? y + i : y;
       this.board[currX][currY].ship = ship;
     }
+    ++this.floatingShips;
     return true;
+  }
+
+  receiveAttack(x, y) {
+    const cell = this.board[x][y];
+    if (cell.isHit) {
+      return;
+    }
+    cell.isHit = true;
+    if (cell.ship != null) {
+      cell.ship.hit();
+      if (cell.ship.isSunk()) {
+        --this.floatingShips;
+      }
+    }
+  }
+
+  areAllSunk() {
+    return this.floatingShips == 0;
   }
 }
