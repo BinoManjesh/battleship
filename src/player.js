@@ -1,10 +1,12 @@
 export default class Player {
   turn;
-  gameboard;
+  enemyGameboard;
+  game;
 
-  constructor(gameboard) {
+  constructor(game, enemyGameboard) {
     this.turn = false;
-    this.gameboard = gameboard;
+    this.game = game;
+    this.enemyGameboard = enemyGameboard;
   }
 
   setTurn() {
@@ -15,8 +17,9 @@ export default class Player {
     if (!this.turn) {
       return false;
     }
-    this.gameboard.receiveAttack(x, y);
+    this.enemyGameboard.receiveAttack(x, y);
     this.turn = false;
+    this.game.turnFinished();
     return true;
   }
 }

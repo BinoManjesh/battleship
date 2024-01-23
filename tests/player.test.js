@@ -10,11 +10,13 @@ test("setTurn", () => {
   expect(player.turn).toBe(true);
 });
 test("makeMove", () => {
-  const mock = jest.fn();
-  const player = new Player({ receiveAttack: mock });
+  const turnFinished = jest.fn();
+  const receiveAttack = jest.fn();
+  const player = new Player({ turnFinished }, { receiveAttack });
   expect(player.makeMove(5, 5)).toBe(false);
   player.setTurn();
   expect(player.makeMove(5, 5)).toBe(true);
-  expect(mock).toBeCalled();
+  expect(turnFinished).toBeCalled();
+  expect(receiveAttack).toBeCalled();
   expect(player.turn).toBe(false);
 });
