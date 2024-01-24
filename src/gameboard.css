@@ -1,0 +1,11 @@
+div.gameboard {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+div.gameboard > div.row {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;  
+}
