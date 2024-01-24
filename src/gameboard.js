@@ -1,12 +1,30 @@
 import Ship from "./ship";
 
 class Cell {
-  ship;
-  isHit;
+  #ship;
+  #isHit;
+  constructor(notifyElement) {
+    this.notifyElement = notifyElement;
+    this.#ship = null;
+    this.#isHit = false;
+  }
 
-  constructor() {
-    this.ship = null;
-    this.isHit = false;
+  set ship(ship) {
+    this.#ship = ship;
+    this.notifyElement(this);
+  }
+
+  get ship() {
+    return this.#ship;
+  }
+
+  set isHit(isHit) {
+    this.#isHit = isHit;
+    this.notifyElement(this);
+  }
+
+  get isHit() {
+    return this.#isHit;
   }
 }
 
@@ -16,13 +34,13 @@ export default class Gameboard {
   ships;
   floatingShips;
 
-  constructor(size) {
+  constructor(size, notifyElement) {
     this.size = size;
     this.board = new Array(size);
     for (let i = 0; i < size; ++i) {
       this.board[i] = new Array(size);
       for (let j = 0; j < size; ++j) {
-        this.board[i][j] = new Cell();
+        this.board[i][j] = new Cell((cell) => notifyElement(i, j, cell));
       }
     }
     this.ships = new Array();

@@ -10,7 +10,7 @@ test("constructor", () => {
 });
 describe("placeShip", () => {
   test("normal case", () => {
-    const gameboard = new Gameboard(5);
+    const gameboard = new Gameboard(5, () => 0);
     for (let i = 0; i < 5; ++i) {
       expect(gameboard.board[2][i].ship).toBe(null);
     }
@@ -32,7 +32,7 @@ describe("placeShip", () => {
   });
 
   test("overlap", () => {
-    const gameboard = new Gameboard(10);
+    const gameboard = new Gameboard(10, () => 0);
     for (let i = 0; i < 5; ++i) {
       expect(gameboard.board[7][i].ship).toBe(null);
     }
@@ -44,7 +44,7 @@ describe("placeShip", () => {
   });
 
   test("no overlap", () => {
-    const gameboard = new Gameboard(10);
+    const gameboard = new Gameboard(10, () => 0);
     for (let i = 0; i < 5; ++i) {
       expect(gameboard.board[7][i].ship).toBe(null);
     }
@@ -58,13 +58,13 @@ describe("placeShip", () => {
 
 describe("receive attack", () => {
   test("basic case", () => {
-    const gameboard = new Gameboard(10);
+    const gameboard = new Gameboard(10, () => 0);
     gameboard.receiveAttack(4, 5);
     expect(gameboard.board[4][5].isHit).toBe(true);
   });
 
   test("ship sinks", () => {
-    const gameboard = new Gameboard(4);
+    const gameboard = new Gameboard(4, () => 0);
     gameboard.placeShip(3, 2, 1, true);
     expect(gameboard.floatingShips).toBe(1);
     gameboard.receiveAttack(2, 1);
