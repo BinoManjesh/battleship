@@ -34,13 +34,13 @@ export default class Gameboard {
   ships;
   floatingShips;
 
-  constructor(size, notifyElement) {
+  constructor(size, element) {
     this.size = size;
     this.board = new Array(size);
     for (let i = 0; i < size; ++i) {
       this.board[i] = new Array(size);
       for (let j = 0; j < size; ++j) {
-        this.board[i][j] = new Cell((cell) => notifyElement(i, j, cell));
+        this.board[i][j] = new Cell((cell) => element.updateCell(i, j, cell));
       }
     }
     this.ships = new Array();
