@@ -1,10 +1,13 @@
 export default class Player {
   turn;
-  enemyGameboard;
   game;
+  enemyGameboard;
 
-  constructor(game, enemyGameboard) {
+  constructor() {
     this.turn = false;
+  }
+
+  configure(game, enemyGameboard) {
     this.game = game;
     this.enemyGameboard = enemyGameboard;
   }

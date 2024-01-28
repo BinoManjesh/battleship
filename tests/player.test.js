@@ -12,7 +12,8 @@ test("setTurn", () => {
 test("makeMove", () => {
   const turnFinished = jest.fn();
   const receiveAttack = jest.fn();
-  const player = new Player({ turnFinished }, { receiveAttack });
+  const player = new Player();
+  player.configure({ turnFinished }, { receiveAttack });
   expect(player.makeMove(5, 5)).toBe(false);
   player.setTurn();
   expect(player.makeMove(5, 5)).toBe(true);
