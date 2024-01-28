@@ -1,4 +1,4 @@
-import Player from "../src/player";
+import Player from "../src/player/player";
 
 test("constructor", () => {
   const player = new Player();
