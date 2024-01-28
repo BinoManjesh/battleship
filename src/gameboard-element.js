@@ -8,7 +8,7 @@ import Ship from "../images/ship.png";
 export default class GameboardElement {
   grid;
 
-  constructor(size, container) {
+  constructor(size, container, player) {
     this.grid = new Array(size);
     container.classList.add("gameboard");
     for (let i = 0; i < size; ++i) {
@@ -19,6 +19,9 @@ export default class GameboardElement {
         const cell = document.createElement("img");
         cell.textContent = "E";
         cell.src = Empty;
+        if (player) {
+          cell.addEventListener("click", () => player.makeMove(i, j));
+        }
         row.appendChild(cell);
         this.grid[i][j] = cell;
       }
@@ -27,7 +30,6 @@ export default class GameboardElement {
   }
 
   updateCell(x, y, cell) {
-    console.log(cell);
     let img;
     if (cell.isHit) {
       if (cell.ship == null) {

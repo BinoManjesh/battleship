@@ -13,10 +13,13 @@ test("makeMove", () => {
   const turnFinished = jest.fn();
   const receiveAttack = jest.fn();
   const player = new Player();
-  player.configure({ turnFinished }, { receiveAttack });
-  expect(player.makeMove(5, 5)).toBe(false);
+  player.configure(
+    { turnFinished },
+    { receiveAttack, board: [[{ isHit: false }]] }
+  );
+  expect(player.makeMove(0, 0)).toBe(false);
   player.setTurn();
-  expect(player.makeMove(5, 5)).toBe(true);
+  expect(player.makeMove(0, 0)).toBe(true);
   expect(turnFinished).toBeCalled();
   expect(receiveAttack).toBeCalled();
   expect(player.turn).toBe(false);
