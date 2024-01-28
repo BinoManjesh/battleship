@@ -3,12 +3,10 @@ import Gameboard from "./gameboard";
 import Player from "./player/player";
 import Game from "./game";
 import ComputerPlayer from "./player/computer-player";
-
-const helloWorld = document.createElement("h1");
-helloWorld.textContent = "Hello World!";
-document.body.appendChild(helloWorld);
+import randomize from "./randomizeBoard";
 
 const BOARD_SIZE = 10;
+const SHIP_COUNT = { 2: 1, 3: 2, 4: 1, 5: 1 };
 
 const container1 = document.querySelector("div.my-gameboard");
 const container2 = document.querySelector("div.enemy-gameboard");
@@ -18,10 +16,8 @@ const element1 = new GameboardElement(BOARD_SIZE, container1, player1);
 const element2 = new GameboardElement(BOARD_SIZE, container2);
 const gameboard1 = new Gameboard(BOARD_SIZE, element2);
 const gameboard2 = new Gameboard(BOARD_SIZE, element1);
-gameboard1.placeShip(5, 0, 0, true);
-gameboard1.receiveAttack(0, 3);
-gameboard1.receiveAttack(7, 9);
-gameboard2.placeShip(3, 0, 0, false);
+randomize(gameboard1, SHIP_COUNT);
+randomize(gameboard2, SHIP_COUNT);
 
 function onGameover() {
   alert("Game Over!");
