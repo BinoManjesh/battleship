@@ -16,9 +16,8 @@ export default class GameboardElement {
       const row = document.createElement("div");
       row.classList.add("row");
       for (let j = 0; j < size; ++j) {
-        const cell = document.createElement("img");
-        cell.textContent = "E";
-        cell.src = Empty;
+        const cell = document.createElement("div");
+        cell.style.backgroundImage = `url(${Empty})`;
         if (player) {
           cell.addEventListener("click", () => player.makeMove(i, j));
         }
@@ -44,6 +43,6 @@ export default class GameboardElement {
         img = Ship;
       }
     }
-    this.grid[x][y].src = img;
+    this.grid[x][y].style.backgroundImage = `url(${img})`;
   }
 }
