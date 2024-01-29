@@ -47,6 +47,17 @@ export default class Gameboard {
     this.floatingShips = 0;
   }
 
+  clear() {
+    for (const row of this.board) {
+      for (const cell of row) {
+        cell.ship = null;
+        cell.isHit = false;
+      }
+    }
+    this.ship = [];
+    this.floatingShips = 0;
+  }
+
   placeShip(length, x, y, horizontal) {
     for (let i = 0; i < length; ++i) {
       const currX = horizontal ? x : x + i;

@@ -17,10 +17,21 @@ const element1 = new EnemyGameboardElement(BOARD_SIZE, container1, player1);
 const element2 = new GameboardElement(BOARD_SIZE, container2);
 const gameboard1 = new Gameboard(BOARD_SIZE, element2);
 const gameboard2 = new Gameboard(BOARD_SIZE, element1);
-randomize(gameboard1, SHIP_COUNT);
-randomize(gameboard2, SHIP_COUNT);
+const game = new Game({ gameboard1, gameboard2, player1, player2, onGameover });
+shuffle();
+
+document.querySelector("button#shuffle").addEventListener("click", shuffle);
+document.querySelector("button#start").addEventListener("click", () => {
+  game.start();
+});
 
 function onGameover() {
   alert("Game Over!");
 }
-new Game({ gameboard1, gameboard2, player1, player2, onGameover });
+
+function shuffle() {
+  if (!game.started) {
+    randomize(gameboard1, SHIP_COUNT);
+    randomize(gameboard2, SHIP_COUNT);
+  }
+}

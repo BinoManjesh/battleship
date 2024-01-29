@@ -7,6 +7,7 @@ function randBool() {
 }
 
 export default function randomize(gameboard, shipCount) {
+  gameboard.clear();
   for (let len in shipCount) {
     for (let i = 0; i < shipCount[len]; ++i) {
       while (

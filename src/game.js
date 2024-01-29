@@ -4,8 +4,15 @@ export default class Game {
     player2.configure(this, gameboard1);
     this.currentPlayer = player1;
     this.nextPlayer = player2;
-    this.currentPlayer.setTurn();
     this.onGameover = onGameover;
+    this.started = false;
+  }
+
+  start() {
+    if (!this.started) {
+      this.started = true;
+      this.currentPlayer.setTurn();
+    }
   }
 
   turnFinished() {
