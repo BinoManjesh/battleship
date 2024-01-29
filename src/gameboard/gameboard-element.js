@@ -1,9 +1,9 @@
 import "./gameboard.css";
 
-import Empty from "../images/empty.png";
-import EmptyAttacked from "../images/empty-attacked.png";
-import ShipAttacked from "../images/ship-attacked.png";
-import Ship from "../images/ship.png";
+import Empty from "../../images/empty.png";
+import EmptyAttacked from "../../images/empty-attacked.png";
+import ShipAttacked from "../../images/ship-attacked.png";
+import Ship from "../../images/ship.png";
 
 export default class GameboardElement {
   grid;
