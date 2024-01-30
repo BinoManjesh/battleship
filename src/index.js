@@ -1,4 +1,5 @@
 import body from "./body.html";
+import "./styles.css";
 import GameboardElement from "./gameboard/gameboard-element";
 import Gameboard from "./gameboard/gameboard";
 import Player from "./player/player";

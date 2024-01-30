@@ -1,17 +1,22 @@
 div.gameboard {
+    --gap: 0.65vh;
     display: flex;
     flex-direction: column;
-    font-size: xx-large;
+    width: 40vh;
+    height: 40vh;
+    gap: var(--gap);
+    background-color: black;
+    padding: var(--gap);
 }
 
 div.gameboard > div.row {
     display: flex;
     flex-direction: row;
+    gap: var(--gap);
+    flex-grow: 1;
 }
 
 div.gameboard > div.row > div {
-    border: 0.1em solid white;
-    height: 1em;
-    width: 1em;
+    flex-grow: 1;
     background-position: center;
 }
