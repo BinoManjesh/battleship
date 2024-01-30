@@ -1,3 +1,4 @@
+import body from "./body.html";
 import GameboardElement from "./gameboard/gameboard-element";
 import Gameboard from "./gameboard/gameboard";
 import Player from "./player/player";
@@ -5,6 +6,8 @@ import Game from "./game";
 import ComputerPlayer from "./player/computer-player";
 import randomize from "./randomizeBoard";
 import EnemyGameboardElement from "./gameboard/enemy-gameboard-element";
+
+document.body.innerHTML = body;
 
 const BOARD_SIZE = 10;
 const SHIP_COUNT = { 2: 1, 3: 2, 4: 1, 5: 1 };
