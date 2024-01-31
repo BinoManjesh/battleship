@@ -37,6 +37,7 @@ div.game-over {
   position: relative;
   font-family: "Sawarabi Mincho";
   font-size: x-large;
+  text-align: center;
 }
 
 .hidden {
