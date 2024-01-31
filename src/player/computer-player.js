@@ -6,7 +6,6 @@ export default class ComputerPlayer extends Player {
     let numValid = 0;
     const board = this.enemyGameboard.board;
     const size = board.length;
-    console.log(numValid);
     for (let i = 0; i < size; ++i) {
       for (let j = 0; j < size; ++j) {
         if (!board[i][j].isHit) {
@@ -21,7 +20,6 @@ export default class ComputerPlayer extends Player {
         if (!board[i][j].isHit) {
           if (numMove == chosenMove) {
             this.makeMove(i, j);
-            console.log("MADE MOVE " + i + " " + j);
             return;
           }
           ++numMove;

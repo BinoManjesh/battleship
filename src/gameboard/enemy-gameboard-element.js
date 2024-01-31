@@ -6,6 +6,5 @@ export default class EnemyGameboardElement extends GameboardElement {
       return;
     }
     super.updateCell(x, y, cell);
-    console.log("bruh");
   }
 }
