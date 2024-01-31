@@ -25,12 +25,17 @@ const game = new Game({ gameboard1, gameboard2, player1, player2, onGameover });
 shuffle();
 
 document.querySelector("button#shuffle").addEventListener("click", shuffle);
-document.querySelector("button#start").addEventListener("click", () => {
-  game.start();
-});
+document.querySelector("button#start").addEventListener("click", onGameStart);
 
-function onGameover() {
-  alert("Game Over!");
+function onGameStart() {
+  game.start();
+  document.querySelector("div.controls").classList.add("hidden");
+}
+
+function onGameover(winner) {
+  const gameOverDiv = document.querySelector("div.game-over");
+  gameOverDiv.innerText = winner === player1 ? "You won!" : "You lost!";
+  gameOverDiv.classList.remove("hidden");
 }
 
 function shuffle() {

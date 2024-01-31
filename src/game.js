@@ -17,7 +17,7 @@ export default class Game {
 
   turnFinished() {
     if (this.currentPlayer.enemyGameboard.areAllSunk()) {
-      this.onGameover();
+      this.onGameover(this.currentPlayer);
       return;
     }
     const temp = this.currentPlayer;

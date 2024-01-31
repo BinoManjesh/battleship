@@ -5,7 +5,7 @@ div.gameboard {
   width: 40vh;
   height: 40vh;
   gap: var(--gap);
-  background-color: black;
+  background-color: #2f415a;
   padding: var(--gap);
 }
 
