@@ -1,22 +1,24 @@
 div.gameboard {
-    --gap: 0.65vh;
-    display: flex;
-    flex-direction: column;
-    width: 40vh;
-    height: 40vh;
-    gap: var(--gap);
-    background-color: black;
-    padding: var(--gap);
+  --gap: 0.65vh;
+  display: flex;
+  flex-direction: column;
+  width: 40vh;
+  height: 40vh;
+  gap: var(--gap);
+  background-color: black;
+  padding: var(--gap);
 }
 
 div.gameboard > div.row {
-    display: flex;
-    flex-direction: row;
-    gap: var(--gap);
-    flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  gap: var(--gap);
+  flex-grow: 1;
 }
 
 div.gameboard > div.row > div {
-    flex-grow: 1;
-    background-position: center;
+  flex-grow: 1;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
